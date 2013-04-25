@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dein neuer Internet-Nick</title>
+<script src="js/namegen-de.js"></script>
+</head>
+<body>
+	<p>
+		Dein neuer Name lautet: <span id="name">...</span>
+	</p>
+	<button id="anotherBtn">Der gefällt mir nicht.</button>
+	<script type="text/javascript">
+    function replaceWithNewName() {
+      nameElem.innerHTML = nameGen();
+    }
+
+    var nameElem = document.getElementById('name');
+    var button = document.getElementById('anotherBtn');
+
+    button.addEventListener('click', function(e) {
+      replaceWithNewName();
+    });
+
+    replaceWithNewName();
+  </script>
+</body>
+</html>
