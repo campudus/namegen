@@ -11,15 +11,15 @@ var nameGen = (function() {
   };
 
   var adj = [ '', 'Alte', 'Arme', 'Blaue', 'Blinde', 'Clevere', 'Dicke', 'Dünne', 'Duftende',
-      'Dunkle', 'Eiserne', 'Erfahrene', 'Fliegende', 'Gefährliche', 'Gefrorene', 'Geheime',
-      'Gelbe', 'Glänzende', 'Goldene', 'Grüne', 'Große', 'Gute', 'Helle', 'Hinterlistige',
-      'Hitzige', 'Jagende', 'Jodelnde', 'Jubelnde', 'Juckende', 'Kaputte', 'Klasse', 'Klebrige',
-      'Kleine', 'Krümelnde', 'Lachende', 'Laufende', 'Laute', 'Leckere', 'Leise', 'Liebe', 'Lila',
-      'Lustige', 'Mini', 'Monströse', 'Mutige', 'Neue', 'Ölige', 'Orange', 'Pfiffige', 'Piepsende',
-      'Quasselnde', 'Quietschende', 'Reiche', 'Richtige', 'Riesige', 'Rote', 'Schlaue',
-      'Schmutzige', 'Schöne', 'Siegende', 'Springende', 'Tobende', 'Tödliche', 'Tolle',
-      'Tolpatschige', 'Träumende', 'Trunkene', 'Ungeduldige', 'Unheimliche', 'Verrückte',
-      'Wartende', 'Weise', 'Wilde', 'Wirbelnde' ];
+      'Dunkle', 'Eiserne', 'Erfahrene', 'Feine', 'Fliegende', 'Gefährliche', 'Gefrorene',
+      'Geheime', 'Gelbe', 'Glänzende', 'Goldene', 'Grüne', 'Große', 'Gute', 'Helle',
+      'Hinterlistige', 'Hitzige', 'Jagende', 'Jodelnde', 'Jubelnde', 'Juckende', 'Kaputte',
+      'Klasse', 'Klebrige', 'Kleine', 'Krümelnde', 'Lachende', 'Laufende', 'Laute', 'Leckere',
+      'Leise', 'Liebe', 'Lila', 'Lustige', 'Mini', 'Monströse', 'Mutige', 'Neue', 'Ölige',
+      'Orange', 'Pfiffige', 'Piepsende', 'Quasselnde', 'Quietschende', 'Reiche', 'Richtige',
+      'Riesige', 'Rote', 'Schlaue', 'Schmutzige', 'Schöne', 'Siegende', 'Springende', 'Tobende',
+      'Tödliche', 'Tolle', 'Tolpatschige', 'Träumende', 'Trunkene', 'Ungeduldige', 'Unheimliche',
+      'Verrückte', 'Wartende', 'Weise', 'Wilde', 'Wirbelnde' ];
   var names = [
       [
           [ 'Der' ],
