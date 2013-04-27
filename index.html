@@ -4,12 +4,108 @@
 <meta charset="UTF-8">
 <title>Dein neuer Internet-Nick</title>
 <script src="js/namegen-de.js"></script>
+<style type="text/css">
+html,body {
+	margin: 0;
+	min-height: 100%;
+}
+
+body {
+	/* Old browsers */
+	background: #000000;
+	/* FF3.6+ */
+	background: -moz-radial-gradient(center, ellipse cover, #303030 0%, #000000 99%);
+	/* Chrome,Safari4+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%,
+		color-stop(0%, #303030), color-stop(99%, #000000));
+	/* Chrome10+,Safari5.1+ */
+	background: -webkit-radial-gradient(center, ellipse cover, #303030 0%, #000000 99%);
+	/* Opera 12+ */
+	background: -o-radial-gradient(center, ellipse cover, #303030 0%, #000000 99%);
+	/* IE10+ */
+	background: -ms-radial-gradient(center, ellipse cover, #303030 0%, #000000 99%);
+	/* W3C */
+	background: radial-gradient(ellipse at center, #303030 0%, #000000 99%);
+	/* IE6-9 fallback on horizontal gradient */
+	filter: progid:DXImageTransform.Microsoft.gradient(               startColorstr='#303030',
+		endColorstr='#000000', GradientType=1);
+	font-family: "Montserrat", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 1.4;
+	color: #fff;
+}
+
+#generated {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 650px;
+	margin-top: -80px;
+	margin-left: -325px;
+}
+
+#generated .name {
+	height: 60px;
+	width: 420px;
+	padding: 0px 20px;
+	line-height: 60px;
+	font-size: 32px;
+	color: #000000;
+	background-color: #fff;
+	font-weight: bold;
+	float: left;
+	text-align: center;
+	vertical-align: center;
+}
+
+#generated .another {
+	border: 0;
+	background-color: #d40055;
+	color: #ffffff;
+	width: 180px;
+	height: 60px;
+	line-height: 60px;
+	margin-left: 10px;
+	font-size: 24px;
+	padding: 0;
+	float: left;
+	background: #d40055 url("../img/icons/arrow_right.png") 185px center
+		no-repeat;
+	padding-right: 25px;
+	padding-left: 25px;
+	text-transform: uppercase;
+	font-family: "Montserrat";
+	text-align: center;
+}
+
+#generated .another:hover,#generated .another:focus,#generated .another:active
+	{
+	background-color: #a3d2e7;
+}
+
+#generated .callme {
+	font-size: 60px;
+	font-family: "Source Sans Pro", sans-serif;
+	font-weight: normal;
+	text-transform: uppercase; color : #ffffff;
+	line-height: 1;
+	margin-bottom: 40px;
+	text-align: center;
+	color: #ffffff;
+}
+</style>
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200" rel="stylesheet"
+	type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"
+	type="text/css">
 </head>
 <body>
-	<p>
-		Dein neuer Name lautet: <span id="name">...</span>
-	</p>
-	<button id="anotherBtn">Der gefällt mir nicht.</button>
+	<div id="generated">
+		<div class="callme">Nenn mich</div>
+		<div class="name" id="name">...</div>
+		<button class="another" id="anotherBtn">... oder ?</button>
+	</div>
+
 	<script type="text/javascript">
     function replaceWithNewName() {
       nameElem.innerHTML = nameGen();
