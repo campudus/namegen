@@ -58,3 +58,7 @@ var nameGen = (function() {
 
   return generate;
 }());
+
+if (module) {
+  module.exports = nameGen;
+}
