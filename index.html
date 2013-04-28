@@ -2,8 +2,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dein neuer Internet-Nick</title>
-<script src="js/namegen-de.js"></script>
+<title>Your new Nickname</title>
+<link rel="shortcut icon" href="http://campudus.github.io/namegen-de/favicon.ico" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200" rel="stylesheet"
+	type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"
+	type="text/css">
+<script src="js/namegen.js"></script>
 <style type="text/css">
 html,body {
 	margin: 0;
@@ -27,12 +32,24 @@ body {
 	/* W3C */
 	background: radial-gradient(ellipse at center, #303030 0%, #000000 99%);
 	/* IE6-9 fallback on horizontal gradient */
-	filter: progid:DXImageTransform.Microsoft.gradient(                    startColorstr='#303030',
-		endColorstr='#000000', GradientType=1);
+	filter: progid:DXImageTransform.Microsoft.gradient(                   
+		                     startColorstr='#303030', endColorstr='#000000',
+		GradientType=1);
 	font-family: "Montserrat", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	line-height: 1.4;
 	color: #fff;
+}
+
+.logo {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+.lang {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
 }
 
 #generated {
@@ -46,7 +63,7 @@ body {
 
 #generated .name {
 	height: 60px;
-	width: 420px;
+	width: 400px;
 	padding: 0px 20px;
 	line-height: 60px;
 	font-size: 32px;
@@ -62,15 +79,13 @@ body {
 	border: 0;
 	background-color: #d40055;
 	color: #ffffff;
-	width: 180px;
+	width: 200px;
 	height: 60px;
 	line-height: 60px;
 	margin-left: 10px;
 	font-size: 24px;
 	padding: 0;
 	float: left;
-	background: #d40055 url("../img/icons/arrow_right.png") 185px center
-		no-repeat;
 	padding-right: 25px;
 	padding-left: 25px;
 	text-transform: uppercase;
@@ -95,37 +110,86 @@ body {
 	color: #ffffff;
 }
 </style>
-<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200" rel="stylesheet"
-	type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"
-	type="text/css">
-<link rel="shortcut icon" href="http://campudus.github.io/namegen-de/favicon.ico" />
 </head>
 <body>
+	<div class="logo">
+		<img alt="Campudus" src="campudus-white.png" width="200" height="41" />
+	</div>
+
 	<a href="https://github.com/campudus/namegen-de"><img
 		style="position: absolute; top: 0; right: 0; border: 0;"
 		src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
 		alt="Fork me on GitHub"></a>
 
 	<div id="generated">
-		<div class="callme">Nenn mich</div>
+		<div class="callme" id="callme">Nenn mich</div>
 		<div class="name" id="name">...</div>
 		<button class="another" id="anotherBtn">... oder ?</button>
 	</div>
 
+	<button class="lang" id="langBtn">de</button>
+
 	<script type="text/javascript">
-    function replaceWithNewName() {
-      nameElem.innerHTML = nameGen();
+    var qs = (function(args) {
+      if (args == "") {
+        return {};
+      }
+      var params = {};
+      for ( var i = 0; i < args.length; ++i) {
+        var keyValue = args[i].split('=');
+        if (keyValue.length != 2) {
+          continue;
+        }
+        params[keyValue[0]] = decodeURIComponent(keyValue[1].replace(/\+/g, " "));
+      }
+      return params;
+    })(window.location.search.substr(1).split('&'));
+
+    var lang = qs['lang'] || 'de';
+    var texts = {
+      'de' : {
+        title : 'Dein neuer Nickname',
+        callme : 'Nenn mich',
+        another : '... anders!'
+      },
+      'en' : {
+        title : 'Your new nickname',
+        callme : 'Call me',
+        another : '... no!'
+      }
     }
 
+    var callme = document.getElementById('callme');
     var nameElem = document.getElementById('name');
     var button = document.getElementById('anotherBtn');
+    var langSwitch = document.getElementById('langBtn');
+
+    function replaceWithNewName() {
+      nameElem.innerHTML = nameGen[lang]();
+    }
+
+    function initLang() {
+      document.title = texts[lang].title;
+      callme.innerHTML = texts[lang].callme;
+      button.innerHTML = texts[lang].another;
+      langBtn.innerHTML = lang;
+      replaceWithNewName();
+    }
 
     button.addEventListener('click', function(e) {
       replaceWithNewName();
     });
 
-    replaceWithNewName();
+    langSwitch.addEventListener('click', function(e) {
+      if (lang === 'de') {
+        lang = 'en';
+      } else {
+        lang = 'de';
+      }
+      initLang();
+    });
+
+    initLang();
   </script>
 </body>
 </html>
