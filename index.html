@@ -58,6 +58,7 @@ body {
 	border-radius: 9px;
 	height: 22px;
 	width: 32px;
+	height: 22px;
 }
 
 #lang_en {
@@ -197,6 +198,17 @@ body {
       nameElem.innerHTML = nameGen[lang]();
     }
 
+    function setLang(l) {
+      lang = l;
+      if (l === 'en') {
+        langSwitchEn.className = 'langBtn activeLang';
+        langSwitchDe.className = 'langBtn';
+      } else {
+        langSwitchEn.className = 'langBtn';
+        langSwitchDe.className = 'langBtn activeLang';
+      }
+      initLang();
+    }
     function initLang() {
       document.title = texts[lang].title;
       callme.innerHTML = texts[lang].callme;
@@ -209,19 +221,13 @@ body {
     });
 
     langSwitchEn.addEventListener('click', function(e) {
-      lang = 'en';
-      langSwitchEn.className = 'langBtn activeLang';
-      langSwitchDe.className = 'langBtn';
-      initLang();
+      setLang('en');
     });
     langSwitchDe.addEventListener('click', function(e) {
-      lang = 'de';
-      langSwitchEn.className = 'langBtn';
-      langSwitchDe.className = 'langBtn activeLang';
-      initLang();
+      setLang('de');
     });
 
-    initLang();
+    setLang(lang);
   </script>
 </body>
 </html>
