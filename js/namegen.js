@@ -3,12 +3,12 @@ var nameGen = (function() {
       'Dunkle', 'Eilige', 'Eiserne', 'Erfahrene', 'Feine', 'Fliegende', 'Gefährliche', 'Gefrorene',
       'Geheime', 'Gelbe', 'Glänzende', 'Goldene', 'Grüne', 'Große', 'Gute', 'Heilige', 'Helle',
       'Hinterlistige', 'Hitzige', 'Hüpfende', 'Jagende', 'Jodelnde', 'Jubelnde', 'Juckende',
-      'Kaputte', 'Klasse', 'Klebrige', 'Kleine', 'Krümelnde', 'Lachende', 'Laufende', 'Laute',
-      'Leckere', 'Leise', 'Liebe', 'Lila', 'Lustige', 'Mini', 'Monströse', 'Mutige', 'Neue',
-      'Ölige', 'Orange', 'Pfiffige', 'Piepsende', 'Quasselnde', 'Quietschende', 'Reiche',
+      'Kalte', 'Kaputte', 'Klasse', 'Klebrige', 'Kleine', 'Krümelnde', 'Lachende', 'Laufende',
+      'Laute', 'Leckere', 'Leise', 'Liebe', 'Lila', 'Lustige', 'Mini', 'Monströse', 'Mutige',
+      'Neue', 'Ölige', 'Orange', 'Pfiffige', 'Piepsende', 'Quasselnde', 'Quietschende', 'Reiche',
       'Richtige', 'Riesige', 'Rote', 'Schlaue', 'Schmutzige', 'Schöne', 'Siegende', 'Springende',
       'Tobende', 'Tödliche', 'Tolle', 'Tolpatschige', 'Träumende', 'Trunkene', 'Ungeduldige',
-      'Unheimliche', 'Verrückte', 'Wartende', 'Weise', 'Wilde', 'Wirbelnde' ];
+      'Unheimliche', 'Verrückte', 'Warme', 'Wartende', 'Weise', 'Wilde', 'Wirbelnde' ];
 
   var names = {
     'de' : [
@@ -19,7 +19,7 @@ var nameGen = (function() {
                 'Erpel', 'Fahrgast', 'Fels', 'Flitzer', 'Gast', 'Gürtel', 'Hase', 'Hecht', 'Herr',
                 'Hirsch', 'Hund', 'Igel', 'Insider', 'Junge', 'Käfer', 'Kaffee', 'Käse', 'Klon',
                 'Knauser', 'Keks', 'Kiesel', 'Kreis', 'Kürbis', 'Löwe', 'Mann', 'Mensch',
-                'Moderator', 'Mond', 'Neffe', 'Onkel', 'Papagei', 'Pfosten', 'Polizist',
+                'Moderator', 'Mond', 'Neffe', 'Onkel', 'Papagei', 'Pfosten', 'Pirat', 'Polizist',
                 'Praktikant', 'Prüfer', 'Riegel', 'Schnaps', 'Schuft', 'Spieler', 'Streuner',
                 'Teller', 'Toaster', 'Vogel', 'Wächter', 'Wäschekorb', 'Welpe', 'Wirt', 'Wurm',
                 'Ziegel', 'Zwerg' ] ],

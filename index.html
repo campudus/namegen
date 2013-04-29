@@ -32,9 +32,8 @@ body {
 	/* W3C */
 	background: radial-gradient(ellipse at center, #303030 0%, #000000 99%);
 	/* IE6-9 fallback on horizontal gradient */
-	filter: progid:DXImageTransform.Microsoft.gradient(                   
-		                     startColorstr='#303030', endColorstr='#000000',
-		GradientType=1);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#303030',
+		endColorstr='#000000', GradientType=1);
 	font-family: "Montserrat", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	line-height: 1.4;
@@ -46,10 +45,36 @@ body {
 	bottom: 10px;
 	right: 10px;
 }
+
 .lang {
 	position: absolute;
 	bottom: 10px;
 	left: 10px;
+}
+
+.langBtn {
+	background-color: transparent;
+	border: 0;
+	border-radius: 9px;
+	height: 22px;
+	width: 32px;
+}
+
+#lang_en {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url('img/lang_en.png');
+}
+
+#lang_de {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url('img/lang_de.png');
+}
+
+.activeLang {
+	/* Old browsers */
+	background: #fff;
 }
 
 #generated {
@@ -113,7 +138,7 @@ body {
 </head>
 <body>
 	<div class="logo">
-		<img alt="Campudus" src="campudus-white.png" width="200" height="41" />
+		<img alt="Campudus" src="img/campudus-white.png" width="200" height="41" />
 	</div>
 
 	<a href="https://github.com/campudus/namegen"><img
@@ -127,7 +152,10 @@ body {
 		<button class="another" id="anotherBtn">... oder ?</button>
 	</div>
 
-	<button class="lang" id="langBtn">de</button>
+	<div class="lang">
+		<button id="lang_en" class="langBtn"></button>
+		<button id="lang_de" class="langBtn activeLang"></button>
+	</div>
 
 	<script type="text/javascript">
     var qs = (function(args) {
@@ -161,8 +189,9 @@ body {
 
     var callme = document.getElementById('callme');
     var nameElem = document.getElementById('name');
-    var button = document.getElementById('anotherBtn');
-    var langSwitch = document.getElementById('langBtn');
+    var anotherBtn = document.getElementById('anotherBtn');
+    var langSwitchEn = document.getElementById('lang_en');
+    var langSwitchDe = document.getElementById('lang_de');
 
     function replaceWithNewName() {
       nameElem.innerHTML = nameGen[lang]();
@@ -171,21 +200,24 @@ body {
     function initLang() {
       document.title = texts[lang].title;
       callme.innerHTML = texts[lang].callme;
-      button.innerHTML = texts[lang].another;
-      langBtn.innerHTML = lang;
+      anotherBtn.innerHTML = texts[lang].another;
       replaceWithNewName();
     }
 
-    button.addEventListener('click', function(e) {
+    anotherBtn.addEventListener('click', function(e) {
       replaceWithNewName();
     });
 
-    langSwitch.addEventListener('click', function(e) {
-      if (lang === 'de') {
-        lang = 'en';
-      } else {
-        lang = 'de';
-      }
+    langSwitchEn.addEventListener('click', function(e) {
+      lang = 'en';
+      langSwitchEn.className = 'langBtn activeLang';
+      langSwitchDe.className = 'langBtn';
+      initLang();
+    });
+    langSwitchDe.addEventListener('click', function(e) {
+      lang = 'de';
+      langSwitchEn.className = 'langBtn';
+      langSwitchDe.className = 'langBtn activeLang';
       initLang();
     });
 
